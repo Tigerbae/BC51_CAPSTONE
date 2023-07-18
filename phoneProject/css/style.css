@@ -88,11 +88,11 @@ video {
 }
 
 .title__product {
-  font-size: 30px;
-  font-weight: bold;
+  font-size: 44px;
+  font-weight: 600;
   font-family: "Roboto", sans-serif;
   text-align: center;
-  margin: 50px auto;
+  margin: 30px auto;
 }
 
 .card-img-top {
@@ -103,8 +103,12 @@ video {
   margin-right: auto;
 }
 
+.row {
+  padding-bottom: 25px;
+}
+
 .card-body .card-title {
-  font-size: 18px;
+  font-size: 1.1rem;
   font-weight: 600;
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
@@ -116,13 +120,13 @@ video {
   justify-content: center;
 }
 .card-body .gia__ban {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
   font-family: "Roboto", sans-serif;
   margin: 0 10px;
 }
 .card-body .gia__goc {
-  font-size: 18px;
+  font-size: 1.1rem;
   font-style: italic;
   font-family: "Roboto", sans-serif;
   margin: 0 10px;
@@ -133,7 +137,6 @@ video {
   background: linear-gradient(90deg, rgb(83, 110, 174) 0%, rgb(89, 122, 161) 50%, rgb(171, 0, 255) 100%);
 }
 .bg__footer .content__footer {
-  margin-top: 10px;
   display: flex;
   font-family: "Roboto", sans-serif;
   padding: 50px 0;
@@ -141,7 +144,7 @@ video {
 .bg__footer .content__footer .content__footer-left {
   width: 50%;
   font-size: 18px;
-  color: white;
+  color: #fff;
 }
 .bg__footer .content__footer .content__footer-right {
   width: 50%;
@@ -154,5 +157,25 @@ video {
 .bg__footer .content__footer .content__footer-right ul li {
   margin: 0 10px;
   font-size: 18px;
-  color: white;
+  color: #fff;
+}
+
+main {
+  background-color: #121212;
+}
+main .title__product {
+  color: #fff;
+}
+main .card {
+  background-color: transparent;
+  border-color: #656774;
+}
+main .card-body .card-title {
+  color: #fff;
+}
+main .gia__ban {
+  color: #fff;
+}
+main .gia__goc {
+  color: #656774;
 }/*# sourceMappingURL=style.css.map */

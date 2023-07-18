@@ -1,33 +1,35 @@
-$robo: "Roboto", sans-serif;
-
 .title__product {
   font: {
-    size: 30px;
-    weight: bold;
+    size: $fs-8;
+    weight: $fw-2;
     family: $robo;
   }
   text-align: center;
-  margin: 50px auto;
+  margin: $mg-1 auto;
 }
 
 .card-img-top {
   width: 70%;
-  margin-top: 20px;
-  margin-bottom: 10px;
+  margin-top: $mg-6;
+  margin-bottom: $mg-5;
   margin-left: auto;
   margin-right: auto;
+}
+
+.row {
+    padding-bottom: $pd-1;
 }
 
 .card-body {
   .card-title {
     font: {
-      size: 18px;
-      weight: 600;
+      size: $fs-2;
+      weight: $fw-2;
       family: $robo;
     }
     text-transform: uppercase;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: $mg-5;
   }
   .gia {
     display: flex;
@@ -35,54 +37,22 @@ $robo: "Roboto", sans-serif;
   }
   .gia__ban {
     font: {
-      size: 20px;
-      weight: 600;
+      size: $fs-9;
+      weight: $fw-2;
       family: $robo;
     }
-    margin: 0 10px;
+    margin: $mg-0 $mg-5;
   }
   .gia__goc {
     font: {
-      size: 18px;
+      size: $fs-2;
       style: italic;
       family: $robo;
     }
-    margin: 0 10px;
+    margin: $mg-0 $mg-5;
   }
 }
 
-.bg__footer {
-  background: rgb(83, 110, 174);
-  background: linear-gradient(
-    90deg,
-    rgba(83, 110, 174, 1) 0%,
-    rgba(89, 122, 161, 1) 50%,
-    rgba(171, 0, 255, 1) 100%
-  );
-  .content__footer {
-    margin-top: 10px;
-    display: flex;
-    font-family: $robo;
-    padding: 50px 0;
-    .content__footer-left {
-      width: 50%;
-      font-size: 18px;
-      color: white;
-    }
-    .content__footer-right {
-      width: 50%;
-      ul {
-        list-style: none;
-        display: flex;
-        justify-content: right;
-        li {
-          margin: 0 10px;
-          font-size: 18px;
-          color: white;
-        }
-      }
-    }
-  }
-}
+
 
 
