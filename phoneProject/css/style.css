@@ -97,7 +97,7 @@ header {
 header .navbar-brand {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #f9d412;
+  color: #c9d8f4;
 }
 header .navbar-toggler-icon {
   font-size: 1.6rem;
@@ -110,7 +110,7 @@ header #phoneNavbar {
 header #phoneNavbar .nav-link {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #1d365e;
+  color: #f5f9fe;
   padding: 25px;
   transition: 0.2s;
 }
@@ -119,14 +119,14 @@ header #phoneNavbar .nav-link::after {
   width: 100%;
   height: 2px;
   display: block;
-  background-color: #2a73dd;
+  background-color: #fff;
   transform: scaleX(0);
   transition: 0.2s;
 }
 header #phoneNavbar .nav-link:hover {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #2a73dd;
+  color: #c9d8f4;
 }
 header #phoneNavbar .nav-link:hover::after {
   transform: scaleX(1);
@@ -255,6 +255,32 @@ header #phoneNavbar .active .nav-link::after {
   color: white;
 }
 
+main {
+  background-color: #121212;
+}
+main .collapse {
+  color: #fff;
+}
+main .phoneCarousel {
+  color: transparent;
+}
+main .title__product {
+  color: #fff;
+}
+main .card {
+  background-color: transparent;
+  border-color: black;
+}
+main .card-body .card-title {
+  color: #fff;
+}
+main .gia__ban {
+  color: #fff;
+}
+main .gia__goc {
+  color: black;
+}
+
 .btnPhone-watch {
   background: transparent;
   padding: 13.5px 44px;
@@ -268,13 +294,13 @@ header #phoneNavbar .active .nav-link::after {
   transition: 0.5s;
 }
 .btnPhone-watch:hover {
-  background: #2a73dd;
+  background: linear-gradient(90deg, rgb(83, 110, 174) 0%, rgb(89, 122, 161) 50%, rgb(171, 0, 255) 100%);
   border-color: #2a73dd;
   color: #fff;
 }
 
 .btnPhone-buy {
-  background: linear-gradient(120deg, #60a4f4, #2a73dd);
+  background: linear-gradient(90deg, rgb(83, 110, 174) 0%, rgb(89, 122, 161) 50%, rgb(171, 0, 255) 100%);
   padding: 15.5px 46px;
   border: none;
   border-radius: 8px;
@@ -285,7 +311,7 @@ header #phoneNavbar .active .nav-link::after {
   transition: 0.5s;
 }
 .btnPhone-buy:hover {
-  opacity: 0.75;
+  opacity: 0.6;
 }
 
 .btnPhone-shadow {

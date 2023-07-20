@@ -4,15 +4,15 @@
     box-shadow: 0 3px 6px $color-blue-3;
     transition: .5s;
     &:hover{
-        @include styleButtonHover($color-blue-2,$color-blue-2,$color-white-3);
+        @include styleButtonHover($color-raidan,$color-blue-2,$color-white-3);
     }
 }
 .btnPhone-buy{
-    @include styleButton(linear-gradient(120deg, #60a4f4, #2a73dd),$pd-3 + 2.5,$pd-4 + 2,none,$bd-2,$ls-2);
+    @include styleButton($color-raidan,$pd-3 + 2.5,$pd-4 + 2,none,$bd-2,$ls-2);
     @include styleText($fs-1,$fw-2,$color-white-3);
     transition: .5s;
     &:hover{
-        opacity: 0.75;
+        opacity: 0.6;
     }
 }
 
