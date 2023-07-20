@@ -150,6 +150,30 @@ header #phoneNavbar .active .nav-link::after {
   background-size: cover;
   background-position: center bottom;
   padding: 225px 0;
+  /*.btnPhone-watch{
+  background: transparent;
+  padding: 13.5px 44px;
+  border: 2px solid #2a73dd;
+  border-radius: 8px;
+  letter-spacing: 0.03rem;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2a73dd;
+  box-shadow: 0 3px 6px #c9d8f4;
+  transition: .5s;
+  }
+  .btnPhone-buy{
+  background: linear-gradient(120deg, #60a4f4, #2a73dd);
+  padding: 15.5px 46px;
+  border: none;
+  border-radius: 8px;
+  letter-spacing: 0.03rem;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  transition: .5s;
+  }
+  */
 }
 .phoneCarousel h1 {
   font-size: 70px;
