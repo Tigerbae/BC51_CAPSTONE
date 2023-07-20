@@ -1,5 +1,9 @@
 //fix lai mau:
 //color
+
+
+$color-dark-1: black;
+
 $color-white-1: #f5f9fe;
 $color-white-2: #e2ebfc;
 $color-white-3: #fff;
@@ -8,6 +12,7 @@ $color-blue-2: #2a73dd;
 $color-blue-3: #c9d8f4;
 $color-blue-5:#2196f3;
 $color-yellow-1: #f9d412;
+$color-raidan: linear-gradient(90deg, rgb(83, 110, 174) 0%, rgb(89, 122, 161) 50%, rgb(171, 0, 255) 100%);
 
 //dark color
 $color-dark-1: #656774;
@@ -16,8 +21,14 @@ $color-dark-3:#353536;
 $color-dark-4:#212121;
 $color-dark-5: transparent;
 
+
 //google font
 $robo: "Roboto", sans-serif;
+
+$color-blue-4:#2196f3;
+
+
+
 
 //font size
 $fs-1: 14px;
