@@ -210,11 +210,11 @@ header #phoneNavbar .active .nav-link::after {
   }
 }
 .title__product {
-  font-size: 30px;
-  font-weight: bold;
+  font-size: 44px;
+  font-weight: 600;
   font-family: "Roboto", sans-serif;
   text-align: center;
-  margin: 50px auto;
+  margin: 30px auto;
 }
 
 .card-img-top {
@@ -225,8 +225,12 @@ header #phoneNavbar .active .nav-link::after {
   margin-right: auto;
 }
 
+.row {
+  padding-bottom: 25px;
+}
+
 .card-body .card-title {
-  font-size: 18px;
+  font-size: 1.1rem;
   font-weight: 600;
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
@@ -238,13 +242,13 @@ header #phoneNavbar .active .nav-link::after {
   justify-content: center;
 }
 .card-body .gia__ban {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
   font-family: "Roboto", sans-serif;
   margin: 0 10px;
 }
 .card-body .gia__goc {
-  font-size: 18px;
+  font-size: 1.1rem;
   font-style: italic;
   font-family: "Roboto", sans-serif;
   margin: 0 10px;
@@ -255,7 +259,6 @@ header #phoneNavbar .active .nav-link::after {
   background: linear-gradient(90deg, rgb(83, 110, 174) 0%, rgb(89, 122, 161) 50%, rgb(171, 0, 255) 100%);
 }
 .bg__footer .content__footer {
-  margin-top: 10px;
   display: flex;
   font-family: "Roboto", sans-serif;
   padding: 50px 0;
@@ -263,7 +266,7 @@ header #phoneNavbar .active .nav-link::after {
 .bg__footer .content__footer .content__footer-left {
   width: 50%;
   font-size: 18px;
-  color: white;
+  color: #fff;
 }
 .bg__footer .content__footer .content__footer-right {
   width: 50%;
@@ -276,80 +279,105 @@ header #phoneNavbar .active .nav-link::after {
 .bg__footer .content__footer .content__footer-right ul li {
   margin: 0 10px;
   font-size: 18px;
-  color: white;
+
+  color: #fff;
 }
 
-main {
+html.darkMode,
+body.darkMode {
   background-color: #121212;
 }
-main .collapse {
+html.darkMode .title__product,
+body.darkMode .title__product {
   color: #fff;
 }
-main .phoneCarousel {
-  color: transparent;
-}
-main .title__product {
-  color: #fff;
-}
-main .card {
+html.darkMode .card,
+body.darkMode .card {
   background-color: transparent;
-  border-color: black;
+  border-color: #656774;
 }
-main .card-body .card-title {
+html.darkMode .card-body .card-title,
+body.darkMode .card-body .card-title {
   color: #fff;
 }
-main .gia__ban {
+html.darkMode .gia__ban,
+body.darkMode .gia__ban {
   color: #fff;
 }
-main .gia__goc {
-  color: black;
+html.darkMode .gia__goc,
+body.darkMode .gia__goc {
+  color: #656774;
 }
 
-.btnPhone-watch {
-  background: transparent;
-  padding: 13.5px 44px;
-  border: 2px solid #2a73dd;
-  border-radius: 8px;
-  letter-spacing: 0.03rem;
+.sidebarMini {
+  position: fixed;
+  top: 25%;
+  right: 0;
+  z-index: 500;
+  width: 400px;
+  background-color: #2196f3;
+  transform: translateX(100%);
+  transition: 0.5s;
+  border-left: 1px solid #2196f3;
+  color: #fff;
+}
+.sidebarMini .sidebarMini__button {
+  background: #2196f3;
+  padding: 5px 20px;
+  border: 1px solid #2196f3;
+  border-radius: 8px 0 0 8px;
+  letter-spacing: 0.015rem;
+  position: fixed;
+  transform: translateX(-100%);
+  transition: 0.5s;
+  color: #fff;
+}
+.sidebarMini .sidebarMini__button:focus {
+  outline: none;
+}
+.sidebarMini .sidebarMini__content {
+  width: 170px;
+  padding: 20px;
+  text-align: center;
+}
+.sidebarMini .sidebarMini__content h2 {
   font-size: 14px;
-  font-weight: 600;
-  color: #2a73dd;
-  box-shadow: 0 3px 6px #c9d8f4;
+}
+.sidebarMini .sidebarMini__content .switch {
+  height: 25px;
+  width: 50px;
+  margin: 0 10px;
+  position: relative;
+}
+.sidebarMini .sidebarMini__content .switch input {
+  display: none;
+}
+.sidebarMini .sidebarMini__content .switch input:checked + .slider::before {
+  transform: translateX(22px);
+}
+.sidebarMini .sidebarMini__content .switch .slider {
+  background-color: #2a73dd;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  border-radius: 34px;
+  cursor: pointer;
+}
+.sidebarMini .sidebarMini__content .switch .slider::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  bottom: 4px;
+  left: 4px;
   transition: 0.5s;
 }
-.btnPhone-watch:hover {
-  background: linear-gradient(90deg, rgb(83, 110, 174) 0%, rgb(89, 122, 161) 50%, rgb(171, 0, 255) 100%);
-  border-color: #2a73dd;
-  color: #fff;
-}
+.sidebarMini.is-opened {
+  transform: translateX(60%);
 
-.btnPhone-buy {
-  background: linear-gradient(90deg, rgb(83, 110, 174) 0%, rgb(89, 122, 161) 50%, rgb(171, 0, 255) 100%);
-  padding: 15.5px 46px;
-  border: none;
-  border-radius: 8px;
-  letter-spacing: 0.03rem;
-  font-size: 14px;
-  font-weight: 600;
-  color: #fff;
-  transition: 0.5s;
-}
-.btnPhone-buy:hover {
-  opacity: 0.6;
-}
-
-.btnPhone-shadow {
-  background: #f5f9fe;
-  padding: 8px 20px;
-  border: none;
-  border-radius: 4px;
-  letter-spacing: 0.03rem;
-  font-size: 10px;
-  font-weight: 600;
-  color: #2a73dd;
-  box-shadow: 2px 2px 4px #e2ebfc, -2px -2px 4px #fff;
-  transition: 0.5s;
-}
-.btnPhone-shadow:hover {
-  box-shadow: inset 1px 1px 3px #e2ebfc, inset -2px -2px 5px #fff;
 }/*# sourceMappingURL=style.css.map */

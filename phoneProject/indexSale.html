@@ -38,6 +38,25 @@
   <body>
     <header>
       <!-- place navbar here -->
+
+       <!-- SIDEBAR MINI -->
+    <div class="sidebarMini">
+      <button class="sidebarMini__button">
+          <i class="fa fa-cog"></i>
+      </button>
+      <div class="sidebarMini__content">
+          <h2>Choose Mode</h2>
+          <div class="d-flex">
+              <span>Light</span>
+              <label class="switch" for="checkbox">
+                  <input type="checkbox" name="" id="checkbox">
+                  <div class="slider"></div>
+              </label>
+              <span>Dark</span>
+          </div>
+      </div>
+  </div>
+
        <nav class="phoneNav container navbar navbar-expand-lg">
             <a class="navbar-brand" href="#">MeoPhone</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#phoneNavbar"
@@ -62,6 +81,7 @@
                 </ul>
             </div>
         </nav>
+
     </header>
           <!-- Carousel -->
     <section class="phoneCarousel">
@@ -89,11 +109,11 @@
     <main>
       <div class="container">
         <h1 class="title__product">-Featured Products-</h1>
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div id="product__list" class="row row-cols-1 row-cols-md-3 g-4">
           <div class="col">
             <div class="card">
               <img
-                src="./img/iphone-11-pro-max-green-600x600.jpg"
+                src="./img/iphone-11-pro-max-green.png"
                 class="card-img-top"
                 alt="item1"
               />
@@ -113,12 +133,12 @@
           <div class="col">
             <div class="card">
               <img
-                src="./img/iphone-x-64gb-hh-600x600.jpg"
+                src="./img/iphone-x-64gb.png"
                 class="card-img-top"
                 alt="item1"
               />
               <div class="card-body">
-                <h5 class="card-title">Iphone X (64Gb)</h5>
+                <h5 class="card-title">Iphone X quốc tế (64Gb)</h5>
                 <div class="gia">
                   <p class="gia__ban">
                     9.000.000 VND
@@ -133,7 +153,7 @@
           <div class="col">
             <div class="card">
               <img
-                src="./img/samsung-galaxy-m51-trang-new-600x600-600x600.jpg"
+                src="./img/samsung-galaxy-m51.png"
                 class="card-img-top"
                 alt="item1"
               />
@@ -153,7 +173,7 @@
           <div class="col">
             <div class="card">
               <img
-                src="./img/iphone-13-blue-1-600x600-300x300.jpg"
+                src="./img/iphone-13-blue.png"
                 class="card-img-top"
                 alt="item1"
               />
@@ -173,7 +193,7 @@
           <div class="col">
             <div class="card">
               <img
-                src="./img/14-pro-max-galaxydidong-black.jpg"
+                src="./img/14-pro-max-black.png"
                 class="card-img-top"
                 alt="item1"
               />
@@ -193,7 +213,7 @@
           <div class="col">
             <div class="card">
               <img
-                src="./img/samsung-galaxy-note-20-RED.jpg"
+                src="./img/samsung-galaxy-note-20-RED.png"
                 class="card-img-top"
                 alt="item1"
               />
@@ -213,12 +233,12 @@
           <div class="col">
             <div class="card">
               <img
-                src="./img/galaxydidong-s10-xanh-600x600-1.png"
+                src="./img/s10.png"
                 class="card-img-top"
                 alt="item1"
               />
               <div class="card-body">
-                <h5 class="card-title">Galaxy s10 (blue)</h5>
+                <h5 class="card-title">samsung Galaxy s10 (blue)</h5>
                 <div class="gia">
                   <p class="gia__ban">
                     10.000.000 VND
@@ -233,7 +253,7 @@
           <div class="col">
             <div class="card">
               <img
-                src="./img/600x600_crop_iphone-12-tim.jpg"
+                src="./img/iphone-12-violet.png"
                 class="card-img-top"
                 alt="item1"
               />
@@ -253,7 +273,7 @@
           <div class="col">
             <div class="card">
               <img
-                src="./img/Iphone-11-pro-grey-1.jpg"
+                src="./img/Iphone-11-pro-grey.png"
                 class="card-img-top"
                 alt="item1"
               />
