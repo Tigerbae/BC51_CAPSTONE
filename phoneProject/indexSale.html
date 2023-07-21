@@ -120,6 +120,7 @@
       <div class="container">
         <h1 class="title__product">-Featured Products-</h1>
         <div id="product__list" class="row row-cols-1 row-cols-md-3 g-4">
+          <div class="loader"></div>
           <div class="col">
             <div class="card">
               <img
@@ -156,7 +157,7 @@
               </div>
             </div>
           </div>
-          <div class="col">
+          <!-- <div class="col">
             <div class="card">
               <img
                 src="./img/samsung-galaxy-m51.png"
@@ -277,7 +278,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </main>
@@ -311,8 +312,16 @@
       integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
       crossorigin="anonymous"
     ></script>
+    <!-- axios  -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"
+      integrity="sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <!-- ---------------------------js---------------------- -->
     <script src="./js/service/api.js"></script>
+    <script src="./js/controller/index.js"></script>
     <script src="./js/model/product.js"></script>
     <!-- <script src="./js/model/validation.js"></script> -->
     <script src="./js/controller/main.js"></script>
