@@ -2,7 +2,7 @@ var api = new Service();
 function getId(id) {
   return document.getElementById(id);
 }
-function layDanhSachSP() {
+function LayDanhSachSP() {
   var promise = api.layDanhSachSPApi();
   promise
     .then(function (result) {
@@ -13,7 +13,7 @@ function layDanhSachSP() {
       console.log(error);
     });
 }
-layDanhSachSP();
+LayDanhSachSP();
 function renderUI(data) {
   var content = "";
   for (var i = 0; i < data.length; i++) {
@@ -22,7 +22,7 @@ function renderUI(data) {
   <div class="col">
             <div class="card">
               <img
-                src="./img/${product.img}"
+                src="${product.img}"
                 class="card-img-top"
                 alt="item1"
               />
@@ -41,3 +41,4 @@ function renderUI(data) {
   }
   getId(`product__list`).innerHTML = content;
 }
+function ThemSP()
