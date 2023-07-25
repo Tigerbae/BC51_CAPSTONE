@@ -32,29 +32,40 @@
         <!-- tapane  -->
         <div class="tab-content">
           <!-- danh sách sản phẩm  -->
-          <div id="DanhSachSP" role="tabpanel" class="tab-pane in active">
+          <div role="tabpanel" class="tab-pane in active">
             <div class="row">
               <div class="col-md-4">
                 <!-- button thêm mới  -->
-                <button
-                  id="btnThemSP"
-                  type="button"
-                  class="btn btn-primary"
-                  data-bs-toggle="modal"
-                  data-bs-target="#exampleModal"
-                  style="
-                    background: rgb(83, 110, 174);
-                    background: linear-gradient(
-                      90deg,
-                      rgba(83, 110, 174, 1) 0%,
-                      rgba(89, 122, 161, 1) 50%,
-                      rgba(171, 0, 255, 1) 100%
-                    );
-                  "
-                >
-                  <i class="fa fa-plus mr-1"></i>
-                  Thêm Sản Phẩm
-                </button>
+                <div class="form-group">
+                  <button
+                    id="btnThemSP"
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                    
+                    style="
+                      background: rgb(83, 110, 174);
+                      background: linear-gradient(
+                        90deg,
+                        rgba(83, 110, 174, 1) 0%,
+                        rgba(89, 122, 161, 1) 50%,
+                        rgba(171, 0, 255, 1) 100%
+                      );
+                    "
+                  >
+                    <i class="fa fa-plus mr-1"></i>
+                    Thêm Sản Phẩm
+                  </button>
+                </div>
+
+                <div class="form-group">
+                  <select id="locGiaSP" onchange="locGiaSP()">
+                    <option value="locSP">Lọc giá (toàn bộ)</option>
+                    <option value="nhoDenLon">Nhỏ đến lớn</option>
+                    <option value="lonDenNho">lớn đến nhỏ</option>
+                  </select>
+                </div>
               </div>
               <div class="col-md-8">
                 <!-- tìm sản phẩm  -->
@@ -65,6 +76,7 @@
                     </span>
                   </div>
                   <input
+                    id="timKiemSP"
                     type="text"
                     class="form-control"
                     placeholder="Nhập Từ Khóa Tìm Kiếm"
@@ -113,6 +125,7 @@
                 Thêm Sản Phẩm
               </h4>
               <button
+                id="btnClose"
                 type="button"
                 class="btn-close"
                 data-bs-dismiss="modal"
@@ -128,6 +141,11 @@
                   placeholder="Nhập vào tên sản phẩm"
                 />
               </div>
+              <div
+                class="text-danger"
+                style="display: none"
+                id="errorTenSP"
+              ></div>
               <div class="form-group">
                 <label>Giá Sản Phẩm</label>
                 <input
@@ -136,6 +154,11 @@
                   placeholder="Nhập vào giá sản phẩm"
                 />
               </div>
+              <div
+                class="text-danger"
+                style="display: none"
+                id="errorGiaSP"
+              ></div>
               <div class="form-group">
                 <label>kích thước màn hình</label>
                 <input
@@ -144,6 +167,11 @@
                   placeholder="Nhập vào kích thước màn hình(đơn vị in)"
                 />
               </div>
+              <div
+                class="text-danger"
+                style="display: none"
+                id="errorManHinhSP"
+              ></div>
               <div class="form-group">
                 <label>thông số camera sau</label>
                 <input
@@ -152,6 +180,11 @@
                   placeholder="Nhập vào thông số camera sau"
                 />
               </div>
+              <div
+                class="text-danger"
+                style="display: none"
+                id="errorCamSauSP"
+              ></div>
               <div class="form-group">
                 <label>thông số camera trước</label>
                 <input
@@ -160,6 +193,11 @@
                   placeholder="Nhập vào thông số camera trước"
                 />
               </div>
+              <div
+                class="text-danger"
+                style="display: none"
+                id="errorCamTruocSP"
+              ></div>
               <div class="form-group">
                 <label>Hình Ảnh</label>
                 <input
@@ -168,6 +206,11 @@
                   placeholder="Nhập vào hình ảnh sản phẩm"
                 />
               </div>
+              <div
+                class="text-danger"
+                style="display: none"
+                id="errorHinhAnhSP"
+              ></div>
               <div class="form-group">
                 <label>Mô Tả Sản Phẩm</label>
                 <input
@@ -176,20 +219,32 @@
                   placeholder="Nhập vào mô tả sản phẩm"
                 />
               </div>
+              <div
+                class="text-danger"
+                style="display: none"
+                id="errorMoTaSP"
+              ></div>
               <div class="form-group">
                 <label>Type</label>
                 <select class="form-control" id="TypeSP">
-                  <option value="Chọn type">Vui lòng chọn type</option>
+                  <option value="0">Vui lòng chọn type</option>
                   <option value="Samsung">Samsung</option>
                   <option value="Iphone">Iphone</option>
                 </select>
+                <div
+                  class="text-danger"
+                  style="display: none"
+                  id="errorType"
+                ></div>
               </div>
             </div>
             <div class="modal-footer">
               <button
+                id="btnThem"
                 onclick="themSP()"
                 class="btn btn-success"
                 style="
+                  display: none;
                   background: rgb(83, 110, 174);
                   background: linear-gradient(
                     90deg,
@@ -201,6 +256,23 @@
               >
                 Thêm
               </button>
+              <button
+                id="btnCapNhat"
+                onclick="capNhatSP()"
+                class="btn btn-success"
+                style="
+                  display: none;
+                  background: rgb(83, 110, 174);
+                  background: linear-gradient(
+                    90deg,
+                    rgba(83, 110, 174, 1) 0%,
+                    rgba(89, 122, 161, 1) 50%,
+                    rgba(171, 0, 255, 1) 100%
+                  );
+                "
+              >
+                Cập Nhật</button
+              >
             </div>
           </div>
         </div>
@@ -229,7 +301,7 @@
     <!-- ---------------------------js---------------------- -->
     <script src="./js/service/api.js"></script>
     <script src="./js/model/product.js"></script>
-    <!-- <script src="./js/model/validation.js"></script> -->
+    <script src="./js/model/validation.js"></script>
     <script src="./js/controller/indexManager.js"></script>
     <!-- <script src="./js/controller/main.js"></script> -->
   </body>
