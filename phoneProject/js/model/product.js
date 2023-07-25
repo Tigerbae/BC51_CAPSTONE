@@ -1,4 +1,4 @@
-function product (_id,_name,_price,_screen,_backCamera,_frontCamera,_img,_desc,_type){
+function Product (_id,_name,_price,_screen,_backCamera,_frontCamera,_img,_desc,_type){
  this.id = _id;
  this.name = _name;
  this.price = _price;
