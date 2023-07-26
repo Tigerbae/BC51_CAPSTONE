@@ -1,8 +1,11 @@
+//tao class
 var api = new Service();
 var validation = new Validation();
+//tao function
 function getId(id) {
   return document.getElementById(id);
 }
+//DOM lay gia tri
 function layGiaTri() {
   TenSP = getId(`TenSP`).value;
   GiaSP = getId(`GiaSP`).value;
@@ -14,6 +17,7 @@ function layGiaTri() {
   TypeSP = getId(`TypeSP`).value;
 }
 layGiaTri();
+//lay danh sach Api
 function layDanhSachSP() {
   var promise = api.layDanhSachSPApi();
   promise
@@ -26,9 +30,13 @@ function layDanhSachSP() {
     });
 }
 layDanhSachSP();
+//render man hinh
 function renderUI(data) {
+ //tao bien rong
   var content = "";
+  //duyet mang
   for (var i = 0; i < data.length; i++) {
+   //tao bien hung doi tuong cua tung vi tri them vao bien rong:
     var product = data[i];
     content += `
  <tr>
@@ -54,7 +62,9 @@ function renderUI(data) {
   }
   getId(`tblDanhSachSP`).innerHTML = content;
 }
+//tao function rieng cho phan validation
 function themValidation() {
+ //tao bien co mang gia tri true(co gia tri)
   var isValid = true;
   isValid &= validation.kiemTraRong(
     TenSP,
@@ -96,143 +106,127 @@ function themValidation() {
   );
   isValid &= validation.kiemTraSelect(
     "TypeSP",
-    "errorType",
+    "errorTypeSP",
     "(*) Vui lòng chọn type"
   );
   return isValid;
 }
-function themSP() {
-  layGiaTri();
-  //validation
-  themValidation();
-  getId(`btnThem`).onclick = function () {
-    if (isValid) {
-      var product = new Product(
-        "",
-        TenSP,
-        GiaSP,
-        ManHinhSP,
-        CamSauSP,
-        CamTruocSP,
-        HinhAnhSP,
-        MoTaSP,
-        TypeSP
-      );
-      //validation
-      if (confirm(`Bạn có chắc muốn thêm sản phẩm?`)) {
-        var promise = api.themSPApi(product);
-        promise
-          .then(function () {
-            layDanhSachSP();
-            getId("btnClose").click();
-            lamMoiInput();
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-      } else {
-        getId("btnClose").click();
-      }
-    }
-  };
-}
+//click vao nut them san pham:
 getId(`btnThemSP`).onclick = function () {
-  getId(`btnThem`).style.display = "block";
-  function keyUpThemSP() {
-    TenSP = getId(`TenSP`).value;
-    GiaSP = getId(`GiaSP`).value;
-    ManHinhSP = getId(`ManHinhSP`).value;
-    CamSauSP = getId(`CamSauSP`).value;
-    CamTruocSP = getId(`CamTruocSP`).value;
-    HinhAnhSP = getId(`HinhAnhSP`).value;
-    MoTaSP = getId(`MoTaSP`).value;
-    TypeSP = getId(`TypeSP`).value;
-    //validation
-    var isValid = true;
-    isValid &= validation.kiemTraRong(
-      TenSP,
-      "errorTenSP",
-      "(*)Vui lòng nhập tên"
-    );
-    isValid &=
-      validation.kiemTraRong(GiaSP, "errorGiaSP", "(*) Vui lòng nhập giá") &&
-      validation.kiemTraPattern(
-        GiaSP,
-        "errorGiaSP",
-        "(*) Vui lòng nhập giá bằng số",
-        /^[0-9]+$/
-      );
-    isValid &= validation.kiemTraRong(
-      ManHinhSP,
-      "errorManHinhSP",
-      "(*) Vui lòng nhập kích thước màn hình"
-    );
-    isValid &= validation.kiemTraRong(
-      CamSauSP,
-      "errorCamSauSP",
-      "(*) Vui lòng nhập camera sau"
-    );
-    isValid &= validation.kiemTraRong(
-      CamTruocSP,
-      "errorCamTruocSP",
-      "(*) Vui lòng nhập camera trước"
-    );
-    isValid &= validation.kiemTraRong(
-      HinhAnhSP,
-      "errorHinhAnhSP",
-      "(*) Vui lòng nhập hình ảnh"
-    );
-    isValid &= validation.kiemTraRong(
-      MoTaSP,
-      "errorMoTaSP",
-      "(*) Vui lòng nhập mô tả"
-    );
-    isValid &= validation.kiemTraSelect(
-      "TypeSP",
-      "errorType",
-      "(*) Vui lòng chọn type"
-    );
-    getId(`btnThem`).onclick = function () {
-      if (isValid) {
-        var product = new Product(
-          "",
-          TenSP,
-          GiaSP,
-          ManHinhSP,
-          CamSauSP,
-          CamTruocSP,
-          HinhAnhSP,
-          MoTaSP,
-          TypeSP
-        );
-        //validation
-        if (confirm(`Bạn có chắc muốn thêm sản phẩm?`)) {
-          var promise = api.themSPApi(product);
-          promise
-            .then(function () {
-              layDanhSachSP();
-              getId("btnClose").click();
-              lamMoiInput();
-            })
-            .catch(function (error) {
-              console.log(error);
-            });
-        } else {
-          getId("btnClose").click();
-        }
-      }
-    };
-  }
-  getId(`TenSP`).addEventListener("keyup", keyUpThemSP);
-  getId(`GiaSP`).addEventListener("keyup", keyUpThemSP);
-  getId(`ManHinhSP`).addEventListener("keyup", keyUpThemSP);
-  getId(`CamSauSP`).addEventListener("keyup", keyUpThemSP);
-  getId(`CamTruocSP`).addEventListener("keyup", keyUpThemSP);
-  getId(`HinhAnhSP`).addEventListener("keyup", keyUpThemSP);
-  getId(`MoTaSP`).addEventListener("keyup", keyUpThemSP);
-  getId(`TypeSP`).addEventListener("keyup", keyUpThemSP);
+ //validation
+ lamMoiError();
+ lamMoiInput();
+ //tao nut them ket noi voi ham themSP():
+  var btnThem = `<button id="btnThem" onclick='themSP()' class="btn btn-success" style="background: rgb(83, 110, 174);background: linear-gradient(90deg,rgba(83, 110, 174, 1) 0%,rgba(89, 122, 161, 1) 50%,rgba(171, 0, 255, 1) 100%);">Thêm</button>`;
+  document.getElementsByClassName("modal-footer")[0].innerHTML = btnThem;
 };
+//tinh nang them SP:
+function themSP() {
+//goi ham lay value va validation:
+layGiaTri();
+themValidation();
 
+ //validation dang ham keyup(callback function)
+ function keyUpThemSP() {
+  //lay gia tri (ko goi layGiaTri() vi con cua ham ko  tim dc doi tuong)
+   TenSP = getId(`TenSP`).value;
+   GiaSP = getId(`GiaSP`).value;
+   ManHinhSP = getId(`ManHinhSP`).value;
+   CamSauSP = getId(`CamSauSP`).value;
+   CamTruocSP = getId(`CamTruocSP`).value;
+   HinhAnhSP = getId(`HinhAnhSP`).value;
+   MoTaSP = getId(`MoTaSP`).value;
+   TypeSP = getId(`TypeSP`).value;
+   //validation (ko goi themValidation() vi con cua ham ko  tim dc doi tuong)
+   var isValid = true;
+   isValid &= validation.kiemTraRong(
+     TenSP,
+     "errorTenSP",
+     "(*)Vui lòng nhập tên"
+   );
+   isValid &=
+     validation.kiemTraRong(GiaSP, "errorGiaSP", "(*) Vui lòng nhập giá") &&
+     validation.kiemTraPattern(
+       GiaSP,
+       "errorGiaSP",
+       "(*) Vui lòng nhập giá bằng số",
+       /^[0-9]+$/
+     );
+   isValid &= validation.kiemTraRong(
+     ManHinhSP,
+     "errorManHinhSP",
+     "(*) Vui lòng nhập kích thước màn hình"
+   );
+   isValid &= validation.kiemTraRong(
+     CamSauSP,
+     "errorCamSauSP",
+     "(*) Vui lòng nhập camera sau"
+   );
+   isValid &= validation.kiemTraRong(
+     CamTruocSP,
+     "errorCamTruocSP",
+     "(*) Vui lòng nhập camera trước"
+   );
+   isValid &= validation.kiemTraRong(
+     HinhAnhSP,
+     "errorHinhAnhSP",
+     "(*) Vui lòng nhập hình ảnh"
+   );
+   isValid &= validation.kiemTraRong(
+     MoTaSP,
+     "errorMoTaSP",
+     "(*) Vui lòng nhập mô tả"
+   );
+   isValid &= validation.kiemTraSelect(
+     "TypeSP",
+     "errorTypeSP",
+     "(*) Vui lòng chọn type"
+   );
+   //thao tac click nut Them ko the goi function themSP() vi dang dung vi trong trong con cua 1 function khac nen goi se ko function se ko hiu:
+   getId(`btnThem`).onclick = function () {
+    //neu bien co isValid la true(co gia tri)
+     if (isValid) {
+      //tao san pham qua class
+       var product = new Product(
+         "",
+         TenSP,
+         GiaSP,
+         ManHinhSP,
+         CamSauSP,
+         CamTruocSP,
+         HinhAnhSP,
+         MoTaSP,
+         TypeSP
+       );
+       //validation
+       if (confirm(`Bạn có chắc muốn thêm sản phẩm?`)) {
+        //goi api
+         var promise = api.themSPApi(product);
+         promise
+           .then(function () {
+             layDanhSachSP();
+             getId("btnClose").click();
+             lamMoiInput();
+           })
+           .catch(function (error) {
+             console.log(error);
+           });
+       } else {
+         getId("btnClose").click();
+       }
+     }
+   };
+ }
+ //them callback tu bien function o tren(keyUpThemSP()):
+ getId(`TenSP`).addEventListener("keyup", keyUpThemSP);
+ getId(`GiaSP`).addEventListener("keyup", keyUpThemSP);
+ getId(`ManHinhSP`).addEventListener("keyup", keyUpThemSP);
+ getId(`CamSauSP`).addEventListener("keyup", keyUpThemSP);
+ getId(`CamTruocSP`).addEventListener("keyup", keyUpThemSP);
+ getId(`HinhAnhSP`).addEventListener("keyup", keyUpThemSP);
+ getId(`MoTaSP`).addEventListener("keyup", keyUpThemSP);
+ getId(`TypeSP`).addEventListener("keyup", keyUpThemSP);
+}
 function xoaSP(id) {
   if (confirm(`Bạn có chắc chắn xóa sản phẩm không?`)) {
     var promise = api.xoaSPApi(id);
@@ -247,10 +241,13 @@ function xoaSP(id) {
   }
 }
 function suaSP(id) {
-  getId(`btnCapNhat`).style.display = "block";
+  getId(`exampleModalLabel`).innerHTML = `Sửa Sản Phẩm`;
+  var btnCapNhat = `<button id="btnCapNhat" onclick='capNhatSP(${id})' class="btn btn-success" style="background: rgb(83, 110, 174);background: linear-gradient(90deg,rgba(83, 110, 174, 1) 0%,rgba(89, 122, 161, 1) 50%,rgba(171, 0, 255, 1) 100%);">Cập Nhật</button>`;
+  document.getElementsByClassName("modal-footer")[0].innerHTML = btnCapNhat;
   var promise = api.laySPApi(id);
   promise
     .then(function (result) {
+      lamMoiError();
       getId(`TenSP`).value = result.data.name;
       getId(`GiaSP`).value = result.data.price;
       getId(`ManHinhSP`).value = result.data.screen;
@@ -317,39 +314,9 @@ function suaSP(id) {
     );
     isValid &= validation.kiemTraSelect(
       "TypeSP",
-      "errorType",
+      "errorTypeSP",
       "(*) Vui lòng chọn type"
     );
-    getId(`btnCapNhat`).onclick = function () {
-      if (isValid) {
-        var product = new Product(
-          "",
-          TenSP,
-          GiaSP,
-          ManHinhSP,
-          CamSauSP,
-          CamTruocSP,
-          HinhAnhSP,
-          MoTaSP,
-          TypeSP
-        );
-        //validation
-        if (confirm(`Bạn có chắc muốn thêm sản phẩm?`)) {
-          var promise = api.capNhatSPApi(product);
-          promise
-            .then(function () {
-              layDanhSachSP();
-              getId("btnClose").click();
-              lamMoiInput();
-            })
-            .catch(function (error) {
-              console.log(error);
-            });
-        } else {
-          getId("btnClose").click();
-        }
-      }
-    };
   }
   getId(`TenSP`).addEventListener("keyup", keyUpThemSP);
   getId(`GiaSP`).addEventListener("keyup", keyUpThemSP);
@@ -362,82 +329,35 @@ function suaSP(id) {
 }
 function capNhatSP(id) {
   layGiaTri();
-  //validation
-  var isValid = true;
-  isValid &= validation.kiemTraRong(
+  var product = new Product(
+    id,
     TenSP,
-    "errorTenSP",
-    "(*)Vui lòng nhập tên"
-  );
-  isValid &=
-    validation.kiemTraRong(GiaSP, "errorGiaSP", "(*) Vui lòng nhập giá") &&
-    validation.kiemTraPattern(
-      GiaSP,
-      "errorGiaSP",
-      "(*) Vui lòng nhập giá bằng số",
-      /^[0-9]+$/
-    );
-  isValid &= validation.kiemTraRong(
+    GiaSP,
     ManHinhSP,
-    "errorManHinhSP",
-    "(*) Vui lòng nhập kích thước màn hình"
-  );
-  isValid &= validation.kiemTraRong(
     CamSauSP,
-    "errorCamSauSP",
-    "(*) Vui lòng nhập camera sau"
-  );
-  isValid &= validation.kiemTraRong(
     CamTruocSP,
-    "errorCamTruocSP",
-    "(*) Vui lòng nhập camera trước"
-  );
-  isValid &= validation.kiemTraRong(
     HinhAnhSP,
-    "errorHinhAnhSP",
-    "(*) Vui lòng nhập hình ảnh"
-  );
-  isValid &= validation.kiemTraRong(
     MoTaSP,
-    "errorMoTaSP",
-    "(*) Vui lòng nhập mô tả"
+    TypeSP
   );
-  isValid &= validation.kiemTraSelect(
-    "TypeSP",
-    "errorType",
-    "(*) Vui lòng chọn type"
-  );
-  getId(`btnCapNhat`).onclick = function () {
-    if (isValid) {
-      var product = new Product(
-        id,
-        TenSP,
-        GiaSP,
-        ManHinhSP,
-        CamSauSP,
-        CamTruocSP,
-        HinhAnhSP,
-        MoTaSP,
-        TypeSP
-      );
-      //validation
-      if (confirm(`Bạn có chắc muốn thêm sản phẩm?`)) {
-        var promise = api.capNhatSPApi(product);
-        promise
-          .then(function () {
-            layDanhSachSP();
-            getId("btnClose").click();
-            lamMoiInput();
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-      } else {
+  if (confirm(`Bạn có chắc muốn thêm sản phẩm?`)) {
+    var promise = api.capNhatSPApi(product);
+    promise
+      .then(function () {
+        layDanhSachSP();
         getId("btnClose").click();
         lamMoiInput();
-      }
-    }
-  };
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  } else {
+    getId("btnClose").click();
+    lamMoiInput();
+    lamMoiError();
+  }
+
+  //validation
 }
 function timKiemSP() {
   var txtSearch = getId(`timKiemSP`).value;
