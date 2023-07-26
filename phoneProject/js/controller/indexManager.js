@@ -32,11 +32,11 @@ function layDanhSachSP() {
 layDanhSachSP();
 //render man hinh
 function renderUI(data) {
- //tao bien rong
+  //tao bien rong
   var content = "";
   //duyet mang
   for (var i = 0; i < data.length; i++) {
-   //tao bien hung doi tuong cua tung vi tri them vao bien rong:
+    //tao bien hung doi tuong cua tung vi tri them vao bien rong:
     var product = data[i];
     content += `
  <tr>
@@ -64,7 +64,7 @@ function renderUI(data) {
 }
 //tao function rieng cho phan validation
 function themValidation() {
- //tao bien co mang gia tri true(co gia tri)
+  //tao bien co mang gia tri true(co gia tri)
   var isValid = true;
   isValid &= validation.kiemTraRong(
     TenSP,
@@ -113,123 +113,123 @@ function themValidation() {
 }
 //click vao nut them san pham:
 getId(`btnThemSP`).onclick = function () {
- //validation
- lamMoiError();
- lamMoiInput();
- //tao nut them ket noi voi ham themSP():
+  //validation
+  lamMoiError();
+  lamMoiInput();
+  //tao nut them ket noi voi ham themSP():
   var btnThem = `<button id="btnThem" onclick='themSP()' class="btn btn-success" style="background: rgb(83, 110, 174);background: linear-gradient(90deg,rgba(83, 110, 174, 1) 0%,rgba(89, 122, 161, 1) 50%,rgba(171, 0, 255, 1) 100%);">Thêm</button>`;
   document.getElementsByClassName("modal-footer")[0].innerHTML = btnThem;
 };
 //tinh nang them SP:
 function themSP() {
-//goi ham lay value va validation:
-layGiaTri();
-themValidation();
+  //goi ham lay value va validation:
+  layGiaTri();
+  themValidation();
 
- //validation dang ham keyup(callback function)
- function keyUpThemSP() {
-  //lay gia tri (ko goi layGiaTri() vi con cua ham ko  tim dc doi tuong)
-   TenSP = getId(`TenSP`).value;
-   GiaSP = getId(`GiaSP`).value;
-   ManHinhSP = getId(`ManHinhSP`).value;
-   CamSauSP = getId(`CamSauSP`).value;
-   CamTruocSP = getId(`CamTruocSP`).value;
-   HinhAnhSP = getId(`HinhAnhSP`).value;
-   MoTaSP = getId(`MoTaSP`).value;
-   TypeSP = getId(`TypeSP`).value;
-   //validation (ko goi themValidation() vi con cua ham ko  tim dc doi tuong)
-   var isValid = true;
-   isValid &= validation.kiemTraRong(
-     TenSP,
-     "errorTenSP",
-     "(*)Vui lòng nhập tên"
-   );
-   isValid &=
-     validation.kiemTraRong(GiaSP, "errorGiaSP", "(*) Vui lòng nhập giá") &&
-     validation.kiemTraPattern(
-       GiaSP,
-       "errorGiaSP",
-       "(*) Vui lòng nhập giá bằng số",
-       /^[0-9]+$/
-     );
-   isValid &= validation.kiemTraRong(
-     ManHinhSP,
-     "errorManHinhSP",
-     "(*) Vui lòng nhập kích thước màn hình"
-   );
-   isValid &= validation.kiemTraRong(
-     CamSauSP,
-     "errorCamSauSP",
-     "(*) Vui lòng nhập camera sau"
-   );
-   isValid &= validation.kiemTraRong(
-     CamTruocSP,
-     "errorCamTruocSP",
-     "(*) Vui lòng nhập camera trước"
-   );
-   isValid &= validation.kiemTraRong(
-     HinhAnhSP,
-     "errorHinhAnhSP",
-     "(*) Vui lòng nhập hình ảnh"
-   );
-   isValid &= validation.kiemTraRong(
-     MoTaSP,
-     "errorMoTaSP",
-     "(*) Vui lòng nhập mô tả"
-   );
-   isValid &= validation.kiemTraSelect(
-     "TypeSP",
-     "errorTypeSP",
-     "(*) Vui lòng chọn type"
-   );
-   //thao tac click nut Them ko the goi function themSP() vi dang dung vi trong trong con cua 1 function khac nen goi se ko function se ko hiu:
-   getId(`btnThem`).onclick = function () {
-    //neu bien co isValid la true(co gia tri)
-     if (isValid) {
-      //tao san pham qua class
-       var product = new Product(
-         "",
-         TenSP,
-         GiaSP,
-         ManHinhSP,
-         CamSauSP,
-         CamTruocSP,
-         HinhAnhSP,
-         MoTaSP,
-         TypeSP
-       );
-       //validation
-       if (confirm(`Bạn có chắc muốn thêm sản phẩm?`)) {
-        //goi api
-         var promise = api.themSPApi(product);
-         promise
-           .then(function () {
-             layDanhSachSP();
-             getId("btnClose").click();
-             lamMoiInput();
-           })
-           .catch(function (error) {
-             console.log(error);
-           });
-       } else {
-         getId("btnClose").click();
-       }
-     }
-   };
- }
- //them callback tu bien function o tren(keyUpThemSP()):
- getId(`TenSP`).addEventListener("keyup", keyUpThemSP);
- getId(`GiaSP`).addEventListener("keyup", keyUpThemSP);
- getId(`ManHinhSP`).addEventListener("keyup", keyUpThemSP);
- getId(`CamSauSP`).addEventListener("keyup", keyUpThemSP);
- getId(`CamTruocSP`).addEventListener("keyup", keyUpThemSP);
- getId(`HinhAnhSP`).addEventListener("keyup", keyUpThemSP);
- getId(`MoTaSP`).addEventListener("keyup", keyUpThemSP);
- getId(`TypeSP`).addEventListener("keyup", keyUpThemSP);
+  //validation dang ham keyup(callback function)
+  function keyUpThemSP() {
+    //lay gia tri (ko goi layGiaTri() vi con cua ham ko  tim dc doi tuong)
+    TenSP = getId(`TenSP`).value;
+    GiaSP = getId(`GiaSP`).value;
+    ManHinhSP = getId(`ManHinhSP`).value;
+    CamSauSP = getId(`CamSauSP`).value;
+    CamTruocSP = getId(`CamTruocSP`).value;
+    HinhAnhSP = getId(`HinhAnhSP`).value;
+    MoTaSP = getId(`MoTaSP`).value;
+    TypeSP = getId(`TypeSP`).value;
+    //validation (ko goi themValidation() vi con cua ham ko  tim dc doi tuong)
+    var isValid = true;
+    isValid &= validation.kiemTraRong(
+      TenSP,
+      "errorTenSP",
+      "(*)Vui lòng nhập tên"
+    );
+    isValid &=
+      validation.kiemTraRong(GiaSP, "errorGiaSP", "(*) Vui lòng nhập giá") &&
+      validation.kiemTraPattern(
+        GiaSP,
+        "errorGiaSP",
+        "(*) Vui lòng nhập giá bằng số",
+        /^[0-9]+$/
+      );
+    isValid &= validation.kiemTraRong(
+      ManHinhSP,
+      "errorManHinhSP",
+      "(*) Vui lòng nhập kích thước màn hình"
+    );
+    isValid &= validation.kiemTraRong(
+      CamSauSP,
+      "errorCamSauSP",
+      "(*) Vui lòng nhập camera sau"
+    );
+    isValid &= validation.kiemTraRong(
+      CamTruocSP,
+      "errorCamTruocSP",
+      "(*) Vui lòng nhập camera trước"
+    );
+    isValid &= validation.kiemTraRong(
+      HinhAnhSP,
+      "errorHinhAnhSP",
+      "(*) Vui lòng nhập hình ảnh"
+    );
+    isValid &= validation.kiemTraRong(
+      MoTaSP,
+      "errorMoTaSP",
+      "(*) Vui lòng nhập mô tả"
+    );
+    isValid &= validation.kiemTraSelect(
+      "TypeSP",
+      "errorTypeSP",
+      "(*) Vui lòng chọn type"
+    );
+    //thao tac click nut Them ko the goi function themSP() vi dang dung vi trong trong con cua 1 function khac nen goi se ko function se ko hiu:
+    getId(`btnThem`).onclick = function () {
+      //neu bien co isValid la true(co gia tri)
+      if (isValid) {
+        //tao san pham qua class
+        var product = new Product(
+          "",
+          TenSP,
+          GiaSP,
+          ManHinhSP,
+          CamSauSP,
+          CamTruocSP,
+          HinhAnhSP,
+          MoTaSP,
+          TypeSP
+        );
+        //validation
+        if (confirm(`Bạn có chắc muốn thêm sản phẩm?`)) {
+          //goi api
+          var promise = api.themSPApi(product);
+          promise
+            .then(function () {
+              layDanhSachSP();
+              getId("btnClose").click();
+              lamMoiInput();
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+        } else {
+          getId("btnClose").click();
+        }
+      }
+    };
+  }
+  //them callback tu bien function o tren(keyUpThemSP()):
+  getId(`TenSP`).addEventListener("keyup", keyUpThemSP);
+  getId(`GiaSP`).addEventListener("keyup", keyUpThemSP);
+  getId(`ManHinhSP`).addEventListener("keyup", keyUpThemSP);
+  getId(`CamSauSP`).addEventListener("keyup", keyUpThemSP);
+  getId(`CamTruocSP`).addEventListener("keyup", keyUpThemSP);
+  getId(`HinhAnhSP`).addEventListener("keyup", keyUpThemSP);
+  getId(`MoTaSP`).addEventListener("keyup", keyUpThemSP);
+  getId(`TypeSP`).addEventListener("keyup", keyUpThemSP);
 }
 //tinh nang xoa SP:
 function xoaSP(id) {
- //validation va goi api xoa:
+  //validation va goi api xoa:
   if (confirm(`Bạn có chắc chắn xóa sản phẩm không?`)) {
     var promise = api.xoaSPApi(id);
     promise
@@ -244,7 +244,7 @@ function xoaSP(id) {
 }
 //tinh nang sua SP:
 function suaSP(id) {
- //sua tieu de thanh Sua san pham va tao nut cap nhat co lien ket function capNhatSP():
+  //sua tieu de thanh Sua san pham va tao nut cap nhat co lien ket function capNhatSP():
   getId(`exampleModalLabel`).innerHTML = `Sửa Sản Phẩm`;
   var btnCapNhat = `<button id="btnCapNhat" onclick='capNhatSP(${id})' class="btn btn-success" style="background: rgb(83, 110, 174);background: linear-gradient(90deg,rgba(83, 110, 174, 1) 0%,rgba(89, 122, 161, 1) 50%,rgba(171, 0, 255, 1) 100%);">Cập Nhật</button>`;
   document.getElementsByClassName("modal-footer")[0].innerHTML = btnCapNhat;
@@ -252,7 +252,7 @@ function suaSP(id) {
   var promise = api.laySPApi(id);
   promise
     .then(function (result) {
-     //validation:
+      //validation:
       lamMoiError();
       //gan gia tri lay tu api vao input:
       getId(`TenSP`).value = result.data.name;
@@ -337,7 +337,7 @@ function suaSP(id) {
 }
 //tinh nang cap nhat SP:
 function capNhatSP(id) {
- //goi ham lay gia tri:
+  //goi ham lay gia tri:
   layGiaTri();
   //tao san pham tu class SP:
   var product = new Product(
@@ -353,7 +353,7 @@ function capNhatSP(id) {
   );
   //validation
   if (confirm(`Bạn có chắc muốn thêm sản phẩm?`)) {
-   //goi api de cap nhat SP:
+    //goi api de cap nhat SP:
     var promise = api.capNhatSPApi(product);
     promise
       .then(function () {
@@ -373,17 +373,17 @@ function capNhatSP(id) {
   }
 }
 function timKiemSP() {
- //tao bien hung gia tri tim kiem:
+  //tao bien hung gia tri tim kiem:
   var txtSearch = getId(`timKiemSP`).value;
   //tao bien hung danh sach lay tu api:
   var promise = api.layDanhSachSPApi();
   promise
     .then(function (result) {
-     //tao mang rong:
+      //tao mang rong:
       var searchArr = [];
       //duyet mang:
       for (var i = 0; i < result.data.length; i++) {
-       //tao bien hung gia tri cua phan tu trong mang
+        //tao bien hung gia tri cua phan tu trong mang
         var product = result.data[i];
         //tao bien hung gia tri nhap sau khi convert lowercase
         var keyWordSearch = txtSearch.toLowerCase();
@@ -405,23 +405,23 @@ function timKiemSP() {
 getId(`timKiemSP`).addEventListener("keyup", timKiemSP);
 //tao chuc nang loc gia SP:
 function locGiaSP() {
- //tao bien hung gia tri tu the select:
+  //tao bien hung gia tri tu the select:
   var sort = getId(`locGiaSP`).value;
   //dat dieu kien cho bien:
   if (sort === "nhoDenLon") {
-   //tao bien hung danh sach lay ve tu api:
+    //tao bien hung danh sach lay ve tu api:
     var promise = api.layDanhSachSPApi();
     promise
       .then(function (result) {
-       //ap dung long ghep 2 vong lap duyet mang de quet va sap xep:
+        //ap dung long ghep 2 vong lap duyet mang de quet va sap xep:
         for (var i = 0; i < result.data.length; i++) {
           for (var j = i + 1; j < result.data.length; j++) {
-           //dat dieu kien sap xep thu tu va convert sang so:
+            //dat dieu kien sap xep thu tu va convert sang so:
             if (
               parseFloat(result.data[i].price) >
               parseFloat(result.data[j].price)
             ) {
-             //thao tac tao 1 bien phu de chuyen doi du lieu 
+              //thao tac tao 1 bien phu de chuyen doi du lieu
               var temp = result.data[i];
               result.data[i] = result.data[j];
               result.data[j] = temp;
@@ -434,7 +434,7 @@ function locGiaSP() {
       .catch(function (error) {
         console.log(error);
       });
-      //tuong tu cho truong hop nguoc lai:
+    //tuong tu cho truong hop nguoc lai:
   } else if (sort === "lonDenNho") {
     var promise = api.layDanhSachSPApi();
     promise
@@ -456,7 +456,7 @@ function locGiaSP() {
       .catch(function (error) {
         console.log(error);
       });
-      //ngoai 2 truong hop tren thi con lai hien thi day du:
+    //ngoai 2 truong hop tren thi con lai hien thi day du:
   } else {
     layDanhSachSP();
   }
