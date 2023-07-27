@@ -116,8 +116,23 @@
         </div>
       </div>
     </section>
+    <!-- Main  -->
     <main>
       <div class="container">
+         <!-- Dropdown (select) -->
+      <select id="filter__select" onchange="filterProducts()">
+        <option value="all">All</option>
+        <option value="samsung">Samsung</option>
+        <option value="iphone">IPhone</option>
+      </select>
+      <!-- Cart -->
+      <div class="cart">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <ul id="cart__list">
+          
+        </ul>
+    <div id="product__list" class="row row-cols-1 row-cols-md-3 g-4">
+    </div>
         <h1 class="title__product">-Featured Products-</h1>
         <div id="product__list" class="row row-cols-1 row-cols-md-3 g-4">
           <div class="loader"></div>
