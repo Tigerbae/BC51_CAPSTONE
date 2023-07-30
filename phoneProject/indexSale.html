@@ -101,7 +101,6 @@
                     <span class="cart-item cart-header cart-column">Sản Phẩm</span>
                     <span class="cart-price cart-header cart-column">Giá</span>
                     <span class="cart-quantity cart-header cart-column">Số Lượng</span>
-                    <!-- <span class="cart-quantity cart-header cart-column">thành tiền</span> -->
                 </div>
                 <div id="gioHang" class="cart-items">
                   
@@ -148,20 +147,6 @@
     <!-- Main  -->
     <main>
       <div class="container">
-         <!-- Dropdown (select) -->
-      <select id="filter__select" onchange="filterProducts()">
-        <option value="all">All</option>
-        <option value="samsung">Samsung</option>
-        <option value="iphone">IPhone</option>
-      </select>
-      <!-- Cart -->
-      <div class="cart">
-        <i class="fa-solid fa-cart-shopping"></i>
-        <ul id="cart__list">
-          
-        </ul>
-    <div id="product__list" class="row row-cols-1 row-cols-md-3 g-4">
-    </div>
         <h1 class="title__product">-Featured Products-</h1>
         <div class="form-group">
           <select id="locSP" onchange="locTypeSP()">
@@ -214,10 +199,9 @@
     ></script>
     <!-- ---------------------------js---------------------- -->
     <script src="./js/service/api.js"></script>
-    
     <script src="./js/model/product.js"></script>
     <script src="./js/service/cart.js"></script>
-    <script src="./js/controller/demo.js"></script>
+    <script src="./js/controller/indexSale.js"></script>
     <script src="./js/controller/main.js"></script>
   </body>
 </html>
