@@ -1,4 +1,3 @@
-
 //lop doi tuong api
 var api = new Service();
 var cart = new Cart();
@@ -209,4 +208,3 @@ function xoaGioHang(id) {
   setLocalStorage();
   doiSoLuong();
 }
-
