@@ -126,7 +126,7 @@ header #phoneNavbar .nav-link::after {
 header #phoneNavbar .nav-link:hover {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #c9d8f4;
+  color: #121212;
 }
 header #phoneNavbar .nav-link:hover::after {
   transform: scaleX(1);
@@ -134,15 +134,15 @@ header #phoneNavbar .nav-link:hover::after {
 header #phoneNavbar .active .nav-link {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #656774;
+  color: #121212;
 }
 header #phoneNavbar .active .nav-link::after {
   transform: scaleX(1);
 }
-header .cart {
+header button {
   font-size: 15px;
-  color: #fff;
-  background: #c7b200;
+  color: #2196f3;
+  background: #f5f9fe;
   border: 1px solid transparent;
   border-radius: 10px;
   outline: none;
@@ -153,7 +153,7 @@ header .cart {
 header #cart:hover {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #c9d8f4;
+  color: #1d365e;
 }
 header .cart-header {
   font-weight: bold;
